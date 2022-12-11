@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "spu",
+  "version": "${version}",
+  "name": "Server Pack Unlocker",
+  "description": "Allows resource packs provided by servers to be overridden and moved.",
+  "authors": [
+    "TheMysterys"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/server-pack-unlocker"
+  },
+  "license": "Public Domain",
+  "icon": "assets/spu/icon.png",
+  "environment": "client",
+  "entrypoints": {},
+  "mixins": [
+    "spu.mixins.json"
+  ],
+  "depends": {
+    "minecraft": ">=1.17.1"
+  }
+}
