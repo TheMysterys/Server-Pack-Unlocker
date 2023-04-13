@@ -27,7 +27,7 @@ public class PackManager {
     }
 
     public int getPackPosition(String serverIP) {
-        return packMap.get(serverIP);
+        return packMap.getOrDefault(serverIP, -1);
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
