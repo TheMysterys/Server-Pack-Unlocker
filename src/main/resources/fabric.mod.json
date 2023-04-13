@@ -13,11 +13,16 @@
   "license": "Public Domain",
   "icon": "assets/spu/icon.png",
   "environment": "client",
-  "entrypoints": {},
+  "entrypoints": {
+    "main": [
+      "com.themysterys.spu.ServerPackUnlocker"
+    ]
+  },
   "mixins": [
     "spu.mixins.json"
   ],
   "depends": {
-    "minecraft": ">=1.19.3"
+    "minecraft": ">=1.19.3",
+    "fabric-api": ">=0.68.1+1.19.3"
   }
 }
