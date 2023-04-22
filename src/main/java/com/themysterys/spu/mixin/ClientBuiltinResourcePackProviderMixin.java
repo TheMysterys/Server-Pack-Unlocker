@@ -1,7 +1,7 @@
 package com.themysterys.spu.mixin;
 
 import com.themysterys.spu.ServerPackUnlocker;
-import net.minecraft.client.resource.ServerResourcePackProvider;
+import net.minecraft.client.resource.ClientBuiltinResourcePackProvider;
 import net.minecraft.resource.ResourcePackProfile;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,14 +13,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.concurrent.CompletableFuture;
 
-@Mixin(ServerResourcePackProvider.class)
-public class ServerResourcePackProviderMixin {
+@Mixin(ClientBuiltinResourcePackProvider.class)
+public class ClientBuiltinResourcePackProviderMixin {
 
     @Shadow @Nullable private ResourcePackProfile serverContainer;
 
     @ModifyArg(
-            method = "loadServerPack(Ljava/io/File;Lnet/minecraft/resource/ResourcePackSource;)Ljava/util/concurrent/CompletableFuture;",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/resource/ResourcePackProfile;of(Ljava/lang/String;Lnet/minecraft/text/Text;ZLnet/minecraft/resource/ResourcePackProfile$PackFactory;Lnet/minecraft/resource/ResourcePackProfile$Metadata;Lnet/minecraft/resource/ResourceType;Lnet/minecraft/resource/ResourcePackProfile$InsertionPosition;ZLnet/minecraft/resource/ResourcePackSource;)Lnet/minecraft/resource/ResourcePackProfile;"),
+            method = "loadServerPack",
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/resource/ResourcePackProfile;<init>(Ljava/lang/String;ZLjava/util/function/Supplier;Lnet/minecraft/text/Text;Lnet/minecraft/text/Text;Lnet/minecraft/resource/ResourcePackCompatibility;Lnet/minecraft/resource/ResourcePackProfile$InsertionPosition;ZLnet/minecraft/resource/ResourcePackSource;)V"),
             index = 7
     )
     private boolean loadServerPack(boolean isPinned) {
@@ -28,7 +28,7 @@ public class ServerResourcePackProviderMixin {
     }
 
     @Inject(
-            method = "loadServerPack(Ljava/io/File;Lnet/minecraft/resource/ResourcePackSource;)Ljava/util/concurrent/CompletableFuture;",
+            method = "loadServerPack",
             at = @At(value = "TAIL")
     )
     private void storeCurrentServerPack(CallbackInfoReturnable<CompletableFuture<Void>> cir) {

@@ -2,11 +2,11 @@ package com.themysterys.spu;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 
 import java.io.*;
 import java.util.HashMap;
+import java.util.Map;
 
 public class PackManager {
 
@@ -33,6 +33,7 @@ public class PackManager {
     @SuppressWarnings("ResultOfMethodCallIgnored")
     private static void generateFoldersAndFiles() {
         if (!folder.exists()) {
+            System.out.println("[Server Pack Unlocker] Creating new config folder");
             folder.mkdir();
         }
         if (folder.isDirectory()) {
@@ -54,14 +55,16 @@ public class PackManager {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private void readJSON() {
         try {
-            JsonObject json = new Gson().fromJson(new FileReader(configFile), JsonObject.class);
+            Map<String, Integer> json = new HashMap<>();
+            json = new Gson().fromJson(new FileReader(configFile), json.getClass());
             if (json == null) {
                 System.err.println("[Server Pack Unlocker] Invalid configuration!");
                 return;
             }
-            json.asMap().forEach((key, value) -> packMap.put(key, value.getAsInt()));
+            packMap.putAll(json);
         } catch (JsonSyntaxException e) {
             System.err.println("[Server Pack Unlocker] Invalid configuration!");
             e.printStackTrace();

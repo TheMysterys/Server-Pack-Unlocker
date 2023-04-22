@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PackScreen.class)
 public class PackScreenMixin {
 
-    @Inject(method = "close", at = @At("HEAD"))
+    @Inject(method = "onClose", at = @At("HEAD"))
     private void closedPackScreen(CallbackInfo in) {
         if (ServerPackUnlocker.getCurrentServerAddress() != null)
             ServerPackUnlocker.setModifiedPacks(true);
