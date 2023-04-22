@@ -33,6 +33,7 @@ public class PackManager {
     @SuppressWarnings("ResultOfMethodCallIgnored")
     private static void generateFoldersAndFiles() {
         if (!folder.exists()) {
+            System.out.println("[Server Pack Unlocker] Creating new config folder");
             folder.mkdir();
         }
         if (folder.isDirectory()) {
