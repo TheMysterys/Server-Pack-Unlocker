@@ -8,7 +8,9 @@
     "TheMysterys"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/server-pack-unlocker"
+    "homepage": "https://modrinth.com/mod/server-pack-unlocker",
+    "issues": "https://github.com/TheMysterys/Server-Pack-Unlocker/issues",
+    "sources": "https://github.com/TheMysterys/Server-Pack-Unlocker"
   },
   "license": "Public Domain",
   "icon": "assets/spu/icon.png",
