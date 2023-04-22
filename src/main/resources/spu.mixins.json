@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "client": [
     "PackScreenMixin",
-    "ServerResourcePackProviderMixin"
+    "ClientBuiltinResourcePackProviderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

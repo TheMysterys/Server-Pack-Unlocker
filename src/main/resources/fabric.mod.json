@@ -8,7 +8,9 @@
     "TheMysterys"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/server-pack-unlocker"
+    "homepage": "https://modrinth.com/mod/server-pack-unlocker",
+    "issues": "https://github.com/TheMysterys/Server-Pack-Unlocker/issues",
+    "sources": "https://github.com/TheMysterys/Server-Pack-Unlocker"
   },
   "license": "Public Domain",
   "icon": "assets/spu/icon.png",
@@ -22,7 +24,7 @@
     "spu.mixins.json"
   ],
   "depends": {
-    "minecraft": ">=1.19.3",
-    "fabric-api": ">=0.68.1+1.19.3"
+    "minecraft": ">=1.17",
+    "fabric-api": ">=0.46.1+1.17"
   }
 }
