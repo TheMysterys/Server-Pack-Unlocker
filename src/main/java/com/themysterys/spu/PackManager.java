@@ -58,13 +58,13 @@ public class PackManager {
     @SuppressWarnings("unchecked")
     private void readJSON() {
         try {
-            Map<String, Integer> json = new HashMap<>();
+            Map<String, Double> json = new HashMap<>();
             json = new Gson().fromJson(new FileReader(configFile), json.getClass());
             if (json == null) {
                 System.err.println("[Server Pack Unlocker] Invalid configuration!");
                 return;
             }
-            packMap.putAll(json);
+            json.forEach((key, value) -> packMap.put(key, value.intValue()));
         } catch (JsonSyntaxException e) {
             System.err.println("[Server Pack Unlocker] Invalid configuration!");
             e.printStackTrace();
