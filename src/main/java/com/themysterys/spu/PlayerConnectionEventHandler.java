@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.ServerInfo;
-import net.minecraft.network.packet.c2s.play.ResourcePackStatusC2SPacket;
 
 public class PlayerConnectionEventHandler implements ClientPlayConnectionEvents.Join, ClientPlayConnectionEvents.Disconnect {
 
@@ -17,7 +16,6 @@ public class PlayerConnectionEventHandler implements ClientPlayConnectionEvents.
             ServerInfo serverInfo = client.getCurrentServerEntry();
             if (serverInfo == null) return;
             this.currentServerAddress = serverInfo.address;
-            handler.sendPacket(new ResourcePackStatusC2SPacket(ResourcePackStatusC2SPacket.Status.ACCEPTED));
         }
     }
 
