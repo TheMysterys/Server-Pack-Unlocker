@@ -34,7 +34,7 @@ public class PackManager {
     private static void generateFoldersAndFiles() {
         if (!folder.exists()) {
             System.out.println("[Server Pack Unlocker] Creating new config folder");
-            folder.mkdir();
+            folder.mkdirs();
         }
         if (folder.isDirectory()) {
             configFile = new File(folder, "pack-order.json");
