@@ -4,6 +4,7 @@
   "package": "com.themysterys.spu.mixin",
   "compatibilityLevel": "JAVA_8",
   "client": [
+    "GameOptionsMixin",
     "PackScreenMixin",
     "ServerResourcePackProviderMixin"
   ],
