@@ -4,14 +4,9 @@
   "package": "com.themysterys.spu.mixin",
   "compatibilityLevel": "JAVA_8",
   "client": [
-    "PackScreenMixin",
-    "ServerResourcePackProviderMixin"
+    "ServerResourcePackLoaderMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-  },
-  "mixins": [
-    "ResourcePackManagerMixin",
-    "ResourcePackSendS2CPacketMixin"
-  ]
+  }
 }
