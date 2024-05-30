@@ -3,7 +3,7 @@
   "id": "spu",
   "version": "${version}",
   "name": "Server Pack Unlocker",
-  "description": "Allows resource packs provided by servers to be overridden and moved.",
+  "description": "Allows resource packs provided by servers to be overridden and moved. This is useful for servers that force the client to use a resource pack.",
   "authors": [
     "TheMysterys"
   ],
@@ -15,16 +15,10 @@
   "license": "Public Domain",
   "icon": "assets/spu/icon.png",
   "environment": "client",
-  "entrypoints": {
-    "main": [
-      "com.themysterys.spu.ServerPackUnlocker"
-    ]
-  },
   "mixins": [
     "spu.mixins.json"
   ],
   "depends": {
-    "minecraft": ">=1.19.3",
-    "fabric-api": ">=0.68.1+1.19.3"
+    "minecraft": ">=1.20.6"
   }
 }
