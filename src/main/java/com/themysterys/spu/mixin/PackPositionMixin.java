@@ -16,12 +16,9 @@ public class PackPositionMixin {
     @Inject(method = "insert", at = @At("HEAD"), cancellable = true)
     public <T> void insert(List<T> items, T item, Function<T, ResourcePackProfile> profileGetter, boolean listInverted, CallbackInfoReturnable<Integer> cir) {
         int i;
-        ResourcePackProfile pack;
         if (((ResourcePackProfile) item).getSource() == ResourcePackSource.SERVER) {
-            System.out.println("[SPU] Pack List Size:" + items.size());
             for (i = 0; i < items.size(); i++) {
-                System.out.println("[SPU] Pack Item:" + ((ResourcePackProfile) items.get(i)).getName());
-                pack = (ResourcePackProfile) items.get(i);
+                ResourcePackProfile pack = (ResourcePackProfile) items.get(i);
                 if (!pack.isPinned() || pack.getInitialPosition() != ResourcePackProfile.InsertionPosition.TOP ) {
                     break;
                 }
