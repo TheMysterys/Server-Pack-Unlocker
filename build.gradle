@@ -1,9 +1,9 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'fabric-loom' version "${loom_version}"
     id 'maven-publish'
 }
 
-version = (project.property("mod_version") as String + "+" + project.property("minecraft_version") as String)
+version = project.mod_version + "+" + project.property("minecraft_version") //(project.property("mod_version") as String + "+" + project.property("minecraft_version") as String)
 group = project.maven_group
 
 base {
@@ -19,23 +19,23 @@ repositories {
 }
 
 dependencies {
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-
-    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 }
 
 processResources {
-    def version = project.version
-    inputs.property "version", version
+    inputs.property "version", project.version
 
     filesMatching("fabric.mod.json") {
-        expand "version": version
+        expand "version": project.version
     }
 }
 
 tasks.withType(JavaCompile).configureEach {
-    it.options.release = 25
+    it.options.release = 17
 }
 
 java {
@@ -44,15 +44,12 @@ java {
     // If you remove this line, sources will not be generated.
     withSourcesJar()
 
-    sourceCompatibility = JavaVersion.VERSION_25
-    targetCompatibility = JavaVersion.VERSION_25
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {
-    def projectName = project.name
-    inputs.property "projectName", projectName
-
     from("LICENSE") {
-        rename { "${it}_$projectName"}
+        rename { "${it}_${project.base.archivesName.get()}"}
     }
 }

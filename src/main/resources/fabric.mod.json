@@ -19,6 +19,6 @@
     "spu.mixins.json"
   ],
   "depends": {
-    "minecraft": ">=26.1"
+    "minecraft": ">=1.20.3 <=1.21.11"
   }
 }
