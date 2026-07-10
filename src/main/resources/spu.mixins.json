@@ -9,6 +9,7 @@
   "mixins": [
     "PackPositionMixin",
     "ResourcePackProfileMixin",
-    "ResourcePackSendS2CPacketMixin"
+    "ResourcePackSendS2CPacketMixin",
+    "ClientCommonPacketListenerImplMixin"
   ]
 }
