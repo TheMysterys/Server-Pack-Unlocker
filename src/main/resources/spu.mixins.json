@@ -7,7 +7,9 @@
     "defaultRequire": 1
   },
   "mixins": [
+    "DownloadedPackSourceMixin",
     "PackPositionMixin",
+    "PackSelectionModelMixin",
     "ResourcePackProfileMixin",
     "ResourcePackSendS2CPacketMixin",
     "ClientCommonPacketListenerImplMixin"
